@@ -1,0 +1,439 @@
+<%- include ('partials/header.ejs'); %> 
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="ui segment">
+                <div class="ui header" id="uiheader">Search EnEquipe Database</div>
+            </div>
+            <div class="ui container segment">
+                <form action="">
+                    <input type="text" placeholder="e.g. EU law on homicide.." name="search" required>
+                    <input type="submit" value="Search database" class="ui green large basic button">
+                </form>
+            </div>
+            <div class="ui container segment" id="searchResults">
+                <h4>Search results</h4> <hr>
+                <p>
+                    <%= %>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="ui segment">
+                <div class="ui header" id="uiheader">Add notes from the current trial</div>
+            </div>
+            <div class="ui container segment" id="notes">
+              <h4>Your Notes</h4> <hr>
+              <p> 
+                  <% notes.forEach(function(note){ %>
+                      <%= note.doc.text %>
+                      <br>
+                      <span style="font-size: 0.7em; color: #444; float:right;">
+                        <%= moment(note.doc._id).format('LLLL') %>
+                        <b> | <%= note.doc.user %> </b> 
+                      </span>
+                      <hr>
+                  <% }); %>
+              </p>
+          </div>
+
+            <!-- <div class="ui container segment" id="notes">
+                <h4>Your Notes</h4> <hr>
+                    <div id="notes1">
+                    </div> <br>
+                    <span style="font-size: 0.7em; color: #444; float:right;">
+                    <div id="notes2">
+                    </div>
+                    </span>
+                    <hr>
+            </div> -->
+            
+            <div class="ui container segment">
+                <form action="/notes" method="POST">
+                    <input type="text" placeholder="Trial Reference" name="ref" value="<%= trialReference %>" required>
+                    <textarea name="notes" id="" placeholder="type notes here .." rows="6" style="width:100%;padding:20px;"></textarea>
+                    <!-- <input id="noteInput" type="text" placeholder="type notes here .." name="notes" required> -->
+                    <input type="submit" value="Save notes" class="ui green large basic button">
+                </form>
+                <!-- <button onclick="pushUpwards()">Enter</button> -->
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="ui segment">
+                <div class="ui header" id="uiheader">Trial Proceeding Issues</div>
+            </div>
+            <!-- ACCORDION START -->
+            <div class="ui styled fluid accordion">
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Common issues monitored in proceedings
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Possible issues to examine
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Common issues monitored in proceedings
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Possible issues to examine
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Common issues monitored in proceedings
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Possible issues to examine
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+            </div>
+            <!-- ACCORDION END -->
+            <br> 
+            <!-- ACCORDION START -->
+            <div class="ui styled fluid accordion">
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Common issues monitored in proceedings
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Possible issues to examine
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Common issues monitored in proceedings
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Possible issues to examine
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Common issues monitored in proceedings
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  Possible issues to examine
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                    <div class="accordion">
+                        <div class="title">
+                          <i class="dropdown icon"></i>
+                          Issues monitored at trial stage
+                        </div>
+                        <div class="content">
+                            <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                        </div>
+                     </div>
+                </div>
+                <!-- end section -->
+            </div>
+            <!-- ACCORDION END -->
+        </div>
+    </div>
+</div>
+
+<!-- script for accordion -->
+<script>
+    $('.ui.accordion').accordion();
+</script>
+
+<!-- script for search result -->
+<script>
+    var searchResults = document.getElementById("searchResults");
+    searchResults.scrollTop = searchResults.scrollHeight;
+</script>
+<script>
+    var notes = document.getElementById("notes");
+    notes.scrollTop = notes.scrollHeight;
+</script>
+
+<script>
+    var notesArray = [];
+    var noteInput = document.getElementById("noteInput");
+    function pushUpwards() {
+        var text = noteInput.value;
+        var time = Date.now();
+        notesArray.push({
+            "text" : text,
+            "time" : time
+        });
+        var insertText = document.getElementById("notes1");
+        var insertTime = document.getElementById("notes2");
+
+        notesArray.forEach(function(note){
+            var div1 = document.createElement("DIV");
+            var div2 = document.createElement("DIV");
+            var hr = document.createElement("HR");
+            div1.innerHTML = note.text;
+            div2.innerHTML = note.time;
+            insertText.appendChild(div1);
+            insertText.appendChild(div2);
+            insertTime.appendChild(hr);
+        });
+    };
+
+</script>
+<%- include ('partials/footer.ejs'); %> 

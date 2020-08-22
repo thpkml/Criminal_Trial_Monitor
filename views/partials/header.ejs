@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EnEquipe</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" type = "text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="/semanticui/components/accordion.js"></script> -->
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/semantic.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class = "navbar sticky-top navbar-expand-sm navbar-light bg-light" id="topNav">
+        <a class = "navbar-brand" href="/index">EnEquipe</a>
+        <!-- <div class = "navbar-header">
+        </div> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class = "collapse navbar-collapse">
+            <div class = "nav navbar-nav ml-auto navbar-right">
+                <% if(loginStatus === 0){ %>
+                    <a class="nav-item nav-link" href="/login">Login</a>
+                <% } %>
+                <% if(loginStatus === 1){ %>
+                    <a class="nav-item nav-link" href="/logout">Logout</a>
+                    <a class="nav-item nav-link" href="/logout"><%= userEmail %></a>
+                    <a class="nav-item nav-link" href="/register/new"><%= loginStatus %></a>
+                    <% } %>
+                    <% if(trialReference != ""){ %>
+                        <a class="nav-item nav-link" href="">TRIAL-REF: <%= trialReference %></a>
+                    <% } %>
+                    <% if(isAdmin ===1){ %>
+                        <a class="nav-item nav-link" href="/database">Database</a>
+                    <% } %>
+                <!-- <a class="nav-item nav-link" href="/">Category4</a> -->
+                <!-- <a class="nav-item nav-link" href="/notes">Notes</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- check app.js for flash setup -->
+    <div class="container">
+        <div class="container" style="position: absolute; z-index: 300; text-align: center; opacity: 0.95;" id="flashBox">
+            <% if(error && error.length > 0){ %> <!-- coz empty errors could show in flash message-->
+                <div class="alert alert-danger" role="alert">
+                    <div style="float:right;" id="flashCancel">x</div>
+                    <%= error %>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %> 
+            <div class="alert alert-success" role="alert">
+                <div style="float:right;" id="flashCancel">x</div>
+                    <%= success %>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <br> <br>
+
+    
+    

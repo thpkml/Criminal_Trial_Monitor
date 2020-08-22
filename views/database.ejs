@@ -1,0 +1,76 @@
+<%- include ('partials/header.ejs'); %> 
+<div class="" id="database">
+    <div class="">
+        <table border="1" id="taskTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Ref</th>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Court</th>
+                <th>Judge</th>
+                <th>Observer</th>
+                <th>Defendant</th>
+                <th>Lawyer</th>
+                <th>Charge</th>
+                <th>Bail</th>
+                <th>Comment</th>
+                <th>Verdict</th>
+                <th>Comment</th>
+                <th>FullVerdict</th>
+                <th>Comment</th>
+                <th>OnEvidence</th>
+                <th>Comment</th>
+                <th>DeniedAccess</th>
+                <th>DescriptionOfAct</th>
+                <th>CorpusDelicti</th>
+                <th>MotiveConsidered</th>
+                <th>RegardingProtection</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% database.forEach(function(doc){ %> 
+                <tr>
+                    <% if(doc.doc.type === "trial"){ %>
+                    <td><%= moment(doc.doc._id).format("MMM Do 'YY") %></td>
+                    <td><%= doc.doc.ref %></a></td>
+                    <td><%= doc.doc.title %></a></td>
+                    <td><%= doc.doc.location %></td>
+                    <td><%= doc.doc.court %></td>
+                    <td><%= doc.doc.judge %></td>
+                    <td><%= doc.doc.observer %></td>
+                    <td><%= doc.doc.defendant %></td>
+                    <td><%= doc.doc.lawyer %></td>
+                    <td><%= doc.doc.charge %></td>
+                    <td><%= doc.doc.bail1 %></td>
+                    <td><button onclick="alert('<%= doc.doc.bailComment %>')">comment</button></td>
+                    <td><%= doc.doc.reason1 %></td>
+                    <td><%= doc.doc.reasonComment1 %></td>
+                    <td><%= doc.doc.reason2 %></td>
+                    <td><%= doc.doc.reasonValue2 %></td>
+                    <td><%= doc.doc.reason3 %></td>
+                    <td><%= doc.doc.reasonValue3%></td>
+                    <td><%= doc.doc.reason4 %></td>
+                    <td><%= doc.doc.reason51 %></td>
+                    <td><%= doc.doc.reason52 %></td>
+                    <td><%= doc.doc.reason53 %></td>
+                    <td><%= doc.doc.reason54 %></td>
+                    <td>
+                        <% if(globalNotes){ %>
+                        <% globalNotes.forEach(function(note){ %>
+                            <%if(doc.doc.ref == note.doc.ref){ %>
+                                <button onclick="alert('<%= note.doc.text %>')">note</button>
+                            <% } %>
+                        <% })} %>
+                    </td>
+                    <% }; %>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<%- include ('partials/footer.ejs'); %> 

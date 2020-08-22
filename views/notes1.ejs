@@ -1,0 +1,74 @@
+<%- include ('partials/header.ejs'); %> 
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8">
+            <div class="ui segment">
+                <div class="ui header" id="uiheader">Add notes from the current trial</div>
+            </div>
+            <div class="ui container segment" id="notes">
+                <h4>Your Notes</h4> <hr>
+                <p> 
+                    <% notes.forEach(function(note){ %>
+                        <%= note.doc.text %>
+                        <br>
+                        <span style="font-size: 0.7em; color: #444; float:right;">
+                            <%= moment(note.doc._id).format('LLLL') %> 
+                            <b> | <%= note.doc.user %> </b>
+                        </span>
+                        <hr>
+                    <% }); %>
+                </p>
+            </div>
+
+            <div class="ui container segment">
+                <form action="/notes" method="POST">
+                    <input type="text" placeholder="Trial Reference" name="ref" value="<%= trialReference %>" required>
+                    <textarea name="notes" id="" placeholder="type notes here .." rows="7" style="width:100%;padding:20px;"></textarea>
+                    <!-- <input id="noteInput" type="text" placeholder="type notes here .." name="notes" required> -->
+                    <input type="submit" value="Save notes" class="ui green large basic button">
+                </form>
+                <!-- <button onclick="pushUpwards()">Enter</button> -->
+            </div>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+  </div>
+</div>
+<script>
+    var notes = document.getElementById("notes");
+    notes.scrollTop = notes.scrollHeight;
+</script>
+
+<script>
+    var notesArray = [];
+    var noteInput = document.getElementById("noteInput");
+    function pushUpwards() {
+        var text = noteInput.value;
+        var time = Date.now();
+        notesArray.push({
+            "text" : text,
+            "time" : time
+        });
+        var insertText = document.getElementById("notes1");
+        var insertTime = document.getElementById("notes2");
+
+        notesArray.forEach(function(note){
+            var div1 = document.createElement("DIV");
+            var div2 = document.createElement("DIV");
+            var hr = document.createElement("HR");
+            div1.innerHTML = note.text;
+            div2.innerHTML = note.time;
+            insertText.appendChild(div1);
+            insertText.appendChild(div2);
+            insertTime.appendChild(hr);
+        });
+    };
+
+</script>
+<%- include ('partials/footer.ejs'); %> 

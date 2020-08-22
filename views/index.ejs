@@ -1,0 +1,579 @@
+<%- include ('partials/header.ejs'); %> 
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+          <div class="ui segment">
+            <div class="ui header" id="uiheader">Add Current Trial Notes</div>
+          </div>
+          <div class="ui styled fluid accordion">
+              <!-- start section -->
+              <div class="title">
+                <i class="dropdown icon"></i>
+                ADD TRIAL DETAILS
+              </div>
+              <div class="content">
+                  <div class="accordion">
+                    <form action="/trial" method="POST" style="padding: 10px;">
+                      <input type="text" placeholder="Trial Reference" name="ref" value="" required style="width:40%; float:left">
+                      <input type="text" placeholder="Trial Title" name="title" value="" required style="width:59%; margin-left: 1%;">
+                      <label for="">Time and Date: </label><br>
+                      <input type="time" placeholder="Start Time" name="start" value="" required style="width:40%; float:left">
+                      <input type="date" placeholder="Date" name="date" value="" required style="width:59%; margin-left: 1%;">
+                      <input type="text" placeholder="Location: City, Country" name="location" value="" required style="width:49%; float:left">
+                      <input type="text" placeholder="Court Name" name="court" value="" required style="width:50%; margin-left: 1%;">
+                      <input type="text" placeholder="Judge's Full Name" name="judge" value="" required style="width:49%; float:left">
+                      <input type="text" placeholder="Observer's Full Name" name="observer" value="" required style="width:50%; margin-left: 1%;"> 
+                      <input type="text" placeholder="Defendant's Full Name" name="defendant" value="" required style="width:49%; float:left">
+                      <input type="text" placeholder="Defence Lawyer's Full Name" name="lawyer" value="" required style="width:50%; margin-left: 1%;"> 
+                      <input type="text" placeholder="Charges" name="charge" value="" required> 
+                      <input type="submit" value="Save Details" class="ui green large basic button">
+                    </form>
+                  </div>
+              </div>
+          </div>
+          <!-- end section -->
+            <div class="ui container segment" id="notes">
+                <h4>Your Notes</h4> <hr>
+                <p> 
+                        <br>
+                        <span style="font-size: 0.7em; color: #444; float:right;">
+                        </span>
+                        <hr>
+                </p>
+            </div>
+            <div class="ui container segment">
+                <form action="/notes" method="POST">
+                  <!-- <input type="text" placeholder="Trial Reference" name="ref" value="" required> -->
+                    <textarea name="notes" id="" placeholder="type notes here .." rows="5" style="width:100%;padding:20px;"></textarea>
+                    <!-- <input id="noteInput" type="text" placeholder="type notes here .." name="notes" required> -->
+                    <input type="submit" value="Save notes" class="ui green large basic button">
+                </form>
+                <!-- <button onclick="pushUpwards()">Enter</button> -->
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ui segment">
+                <div class="ui header" id="uiheader">Report Trial Proceeding Issues</div>
+            </div>
+            <!-- ACCORDION START -->
+            <div class="ui styled fluid accordion">
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  BAIL
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                      <form action="/trialBail" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="bail1">- Was the defendant given bail?</label>
+                        <select class="questionSelect" name="bail1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="bail2">- Was the defendant allowed to read the
+                          protocol of arrest before signing it?</label>
+                        <select class="questionSelect" name="bail2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="bailComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                     </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  CERTAINTY
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialCertainty" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="certainty1">- Was the defendant given certainty?</label>
+                        <select class="questionSelect" name="certainty1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="certainty2">- Was the defendant given certainty?</label>
+                        <select class="questionSelect" name="certainty2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="certaintyComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  DISCLOSURE
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialDisclosure" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="disclosure1">- Was the defendant given disclosure?</label>
+                        <select class="questionSelect" name="disclosure1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="disclosure2">- Was the defendant given disclosure?</label>
+                        <select class="questionSelect" name="disclosure2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="disclosureComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  IMPARTIALITY
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialImpartiality" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="impartiality1">- Was there any indication of bias on the
+                          part of a judge?</label>
+                        <select class="questionSelect" name="impartiality1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="impartiality2">- Were there inappropriate contacts
+                          between parties?</label>
+                        <select class="questionSelect" name="impartiality2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="impartialityComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  INNOCENCE
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialInnocence" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="innocence1">- Did the defendant exercise this right?</label>
+                        <select class="questionSelect" name="innocence1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="innocence2">- Did the judge pressure the defendant to plead guilty?</label>
+                        <select class="questionSelect" name="innocence2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="innocenceComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  INTERPRETER
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialInterpreter" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="interpreter1">- Was a translator/interpreter involved in
+                          the trial?</label>
+                        <select class="questionSelect" name="interpreter1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="interpreter2">- Was the right to challenge the
+                          translator/interpreter explained to the
+                          parties?</label>
+                        <select class="questionSelect" name="interpreter2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="interpreterComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  LAWYER
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialLawyer" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="lawyer1">- Was the legal counsel present during all
+                          interrogations of the accused??</label>
+                        <select class="questionSelect" name="lawyer1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="lawyer2">- Any difficulties in defense counsel to meet her/his
+                          client?</label>
+                        <select class="questionSelect" name="lawyer2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="lawyerComment" placeholder="legal counsel's name" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  PREPARATION
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialPreparation" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="preparation1">- Was the defendant given enough time to prepare his defense? </label>
+                        <select class="questionSelect" name="preparation1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="preparation2">- Was the legal counsel present during all
+                          interrogations of the accused?</label>
+                        <select class="questionSelect" name="preparation2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="preparationComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  PRESENCE
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialPresence" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="presence1">- Was the defendant present?</label>
+                        <select class="questionSelect" name="presence1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="presence2">- Was the identity of the defendant
+                          established?</label>
+                        <select class="questionSelect" name="presence2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="presenceComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  PUBLIC
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialPublic" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="public1">- Was anyone denied access to the courtroom?</label>
+                        <select class="questionSelect" name="public1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="public2">- Where did the court session take place?</label>
+                        <select class="questionSelect" name="public2" id="">
+                          <option class="questionOption" value="Courtroom">Courtroom</option>
+                          <option class="questionOption" value="Judges Office">Judges Office</option>
+                          <option class="questionOption" value="Other">Other</option>
+                        </select>
+                        <input type="text" class="questionComment" name="publicComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  REASONS
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialReason" method="POST" style="padding: 10px;" >
+                          <!-- question 1 -->
+                          <label class="questionLabel" for="reason1"> - What verdict was passed on the merits of the case? </label>
+                          <input class="answer" type="text" name="reason1" placeholder=" Verdict name OR N/A" required>
+                          <input class="answer" type="text" name="reasonComment1" placeholder="Comment if any">
+                          <!-- question 2 -->
+                          <label class="questionLabel" for="reason2"> - Was the verdict pronounced in full? </label>
+                          <select name="reason2" id="reason2">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                          <div id="reasonValue2">
+                            <input class="answer" type="text" name="reasonValue2" id="reasonValue2" placeholder=" Which part of the judgment was read and which was omitted?">
+                          </div>
+                          <!-- question 3 -->
+                          <label class="questionLabel" for="reason3"> - Was the conviction, if any, based solely or to a decisive extent on evidence
+                            provided in anonymous testimony at the witness­protection hearing or on evidence exempted from direct
+                            presentation (i.e., voice/image distortion)? 
+                          </label>
+                          <select name="reason3" id="reason3">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                          <div id="reasonValue3">
+                            <input class="answer" type="text" name="reasonValue3" id="reasonValue3" placeholder=" What weight did the court attribute to such testimony/evidence?">
+                          </div>
+                          <!-- question 4 -->
+                          <label class="questionLabel" for="reason4">- Was anyone denied access to the courtroom?</label>
+                          <select class="questionSelect" name="reason4" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 5.1 -->
+                          <h5>Did the final judgement include the following four?</h5>
+                          <label class="questionLabel" style="width:75%;margin-left:5%" for="reason4">1. Description of the criminal act and the means of its commission</label>
+                          <select class="questionSelect" name="reason51" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 5.2 -->
+                          <label class="questionLabel" style="width:75%;margin-left:5%" for="reason4">2. Analysis of acts of the defendant in relation to the <em>corpus delicti</em></label>
+                          <select class="questionSelect" name="reason52" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 5.3 -->
+                          <label class="questionLabel" style="width:75%;margin-left:5%" for="reason4">3. The motive and consequences of the crime</label>
+                          <select class="questionSelect" name="reason53" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 5.4 -->
+                          <label class="questionLabel" style="width:75%;margin-left:5%" for="reason4">4. A decision regarding protection and/or other special measure</label>
+                          <select class="questionSelect" name="reason54" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 6 -->
+                          <label class="questionLabel" for="reason6">- Was the alleged offence re-qualified?</label>
+                          <select class="questionSelect" name="reason6" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 7 -->
+                          <label class="questionLabel" for="reason7">- Was the verdict read out clearly?</label>
+                          <select class="questionSelect" name="reason7" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 8 -->
+                          <label class="questionLabel" for="reason8">- Was the verdict well reasoned?</label>
+                          <select class="questionSelect" name="reason8" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 9 -->
+                          <label class="questionLabel" for="reason9">- After having announced the judgement, did the judge explain to the defendant its substance?</label>
+                          <select class="questionSelect" name="reason9" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 10 -->
+                          <label class="questionLabel" for="reason10">- Did the judge explain the procedure and terms of appeal of the verdict and the right to request clemency?</label>
+                          <select class="questionSelect" name="reason10" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <!-- question 11 -->
+                          <label class="questionLabel" for="reason11">- Were any interim court resolutions passed during the case?</label>
+                          <select class="questionSelect" name="reason11" id="">
+                            <option class="questionOption" value="Yes">Yes</option>
+                            <option class="questionOption" value="No">No</option>
+                          </select> <br>
+                          <input type="submit" value="Save" class="ui green large basic button">
+                        </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  SELF-INCRIMINATION
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                      <form action="/trialIncrimination" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="incrimination1">- Was the defendant given incrimination?</label>
+                        <select class="questionSelect" name="incrimination1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="incrimination2">- Was the defendant given incrimination?</label>
+                        <select class="questionSelect" name="incrimination2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="incriminationComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  TIME
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialTime" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="time1">- Was the defendant given time?</label>
+                        <select class="questionSelect" name="time1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="time2">- Was the defendant given time?</label>
+                        <select class="questionSelect" name="time2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="timeComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+                <!-- start section -->
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  WITNESSES
+                </div>
+                <div class="content">
+                    <div class="accordion">
+                        <form action="/trialWitness" method="POST" style="padding: 10px;">
+                        <label class="questionLabel" for="witness1">- Were any witnesses present in the
+                          courtroom before they testified?</label>
+                        <select class="questionSelect" name="witness1" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select> <br>
+                        <label class="questionLabel" for="witness2">- Was the witness warned of
+                          criminal responsibility for giving false evidence?</label>
+                        <select class="questionSelect" name="witness2" id="">
+                          <option class="questionOption" value="Yes">Yes</option>
+                          <option class="questionOption" value="No">No</option>
+                        </select>
+                        <input type="text" class="questionComment" name="witnessComment" placeholder="Comment if any" value="">
+                        <input type="submit" value="Save" class="ui green large basic button">
+                      </form>
+                    </div>
+                </div>
+                <!-- end section -->
+            </div>
+            <!-- ACCORDION END -->
+        </div>
+    </div>
+</div>
+
+<!-- script for accordion -->
+<script>
+    $('.ui.accordion').accordion();
+</script>
+
+<!-- script for search result : NOT CURRENTLY IN USE-->
+<script>
+    var searchResults = document.getElementById("searchResults");
+    searchResults.scrollTop = searchResults.scrollHeight;
+</script>
+<script>
+    var notes = document.getElementById("notes");
+    notes.scrollTop = notes.scrollHeight;
+</script>
+
+<script>
+    var notesArray = [];
+    var noteInput = document.getElementById("noteInput");
+    function pushUpwards() {
+        var text = noteInput.value;
+        var time = Date.now();
+        notesArray.push({
+            "text" : text,
+            "time" : time
+        });
+        var insertText = document.getElementById("notes1");
+        var insertTime = document.getElementById("notes2");
+
+        notesArray.forEach(function(note){
+            var div1 = document.createElement("DIV");
+            var div2 = document.createElement("DIV");
+            var hr = document.createElement("HR");
+            div1.innerHTML = note.text;
+            div2.innerHTML = note.time;
+            insertText.appendChild(div1);
+            insertText.appendChild(div2);
+            insertTime.appendChild(hr);
+        });
+    };
+
+</script>
+
+<!-- Hide/show form input -->
+<script>
+  $(document).ready(function()
+                    {
+                    $("#reason2").change(function()
+          {
+              if($(this).val() == "No")
+          {
+              $("#reasonValue2").show();
+          }
+          else
+          {
+              $("#reasonValue2").hide();
+          }
+              });
+                        $("#reasonValue2").hide();
+  });
+  $(document).ready(function()
+                    {
+                    $("#reason3").change(function()
+          {
+              if($(this).val() == "No")
+          {
+              $("#reasonValue3").show();
+          }
+          else
+          {
+              $("#reasonValue3").hide();
+          }
+              });
+                        $("#reasonValue3").hide();
+  });
+</script>
+<%- include ('partials/footer.ejs'); %> 

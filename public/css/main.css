@@ -1,0 +1,65 @@
+#topNav {
+    padding: 0.7rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+form input {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    width: 100%;
+}
+#uiheader {
+    text-align: center;
+}
+body {
+    /* background-color: rgb(6, 122, 189); */
+    background-color: rgb(3, 71, 110);
+}
+#searchResults {
+    height: 30em;
+    overflow-y: auto;
+}
+#notes {
+    height: 23em;
+    overflow-y: auto;
+}
+.questionLabel {
+    margin-right: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 80%;
+    background-color: #ededed;
+}
+.answer {
+    margin-right: 20px;
+    margin-left: 5%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 75%;
+}
+select.questionSelect {
+   padding: 5px;
+}
+.questionComment {
+    border: 1px solid #ddd;
+}
+#database {
+    white-space: nowrap;
+    width: 98%;
+    height: 90%;
+    margin: auto;
+    overflow-x: auto;
+    border: 1px solid #aaa;
+    padding: 10px;
+    background-color: #ddd;
+}
+#database > div {
+    display: inline-block;
+}
+table > tbody > tr > td{
+    padding: 5px;
+}
+table > thead > tr > th{
+    padding: 5px;
+}
